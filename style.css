@@ -343,6 +343,194 @@ h1, h2, h3, .logo { font-family: 'Space Grotesk', sans-serif; }
 .project-links a:hover::after { width: 100%; }
 .project-links a:hover { color: #ff006e; }
 
+/* ===== Certificates ===== */
+.certificates-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 60px; }
+.certificate-card {
+  background: linear-gradient(135deg, rgba(0,212,255,0.1) 0%, rgba(131,56,236,0.1) 100%);
+  border: 2px solid;
+  border-image: linear-gradient(135deg, #00d4ff, #ff006e, #8338ec) 1;
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.certificate-card::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgba(0,212,255,0.1), transparent);
+  transition: top 0.5s;
+  z-index: 0;
+}
+.certificate-card:hover::before { top: 100%; }
+.certificate-card:hover {
+  transform: translateY(-8px);
+  border-image: linear-gradient(135deg, #ff006e, #ffbe0b, #8338ec) 1;
+  box-shadow: 0 20px 50px rgba(0,212,255,0.2);
+}
+.cert-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+.cert-icon {
+  font-size: 2.2rem;
+  filter: drop-shadow(0 0 8px rgba(0,212,255,0.3));
+}
+.cert-badge {
+  background: linear-gradient(90deg, #00d4ff, #8338ec);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(0,212,255,0.3);
+}
+.certificate-card h3 {
+  font-size: 1.1rem;
+  background: linear-gradient(90deg, #00d4ff, #ff006e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+.cert-issuer {
+  color: #8338ec;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  position: relative;
+  z-index: 1;
+}
+.cert-date {
+  color: #00d4ff;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+.cert-description {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+.cert-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+.skill-tag {
+  background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(255,0,110,0.1));
+  color: #00d4ff;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  border: 1px solid rgba(0,212,255,0.3);
+  transition: all 0.2s;
+}
+.skill-tag:hover {
+  background: linear-gradient(135deg, #00d4ff, #8338ec);
+  color: #fff;
+  transform: scale(1.05);
+}
+.cert-link {
+  display: inline-block;
+  background: linear-gradient(90deg, #00d4ff, #8338ec);
+  color: #fff !important;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 12px rgba(0,212,255,0.3);
+  transition: all 0.2s;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.cert-link:hover {
+  background: linear-gradient(90deg, #ff006e, #ffbe0b);
+  box-shadow: 0 8px 20px rgba(255,0,110,0.4);
+  transform: translateY(-2px);
+}
+.cert-link.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===== Certificates Table ===== */
+.certificates-table {
+  margin-top: 50px;
+  position: relative;
+  z-index: 1;
+}
+.table-title {
+  font-size: 1.3rem;
+  background: linear-gradient(90deg, #00d4ff, #ff006e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.certs-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: linear-gradient(135deg, rgba(0,212,255,0.05) 0%, rgba(131,56,236,0.05) 100%);
+  border: 2px solid;
+  border-image: linear-gradient(135deg, #00d4ff, #ff006e) 1;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.certs-table thead {
+  background: linear-gradient(90deg, rgba(0,212,255,0.1), rgba(131,56,236,0.1));
+  border-bottom: 2px solid rgba(0,212,255,0.3);
+}
+.certs-table th {
+  padding: 16px;
+  text-align: left;
+  color: #00d4ff;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.certs-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0,212,255,0.1);
+  color: var(--text-muted);
+}
+.certs-table tbody tr:hover {
+  background: linear-gradient(90deg, rgba(0,212,255,0.1), rgba(255,0,110,0.05));
+}
+.certs-table td strong {
+  color: #00d4ff;
+}
+.status-badge {
+  background: linear-gradient(90deg, #00d4ff, #8338ec);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: inline-block;
+}
+
 /* ===== Timeline ===== */
 .timeline { position: relative; padding-left: 28px; max-width: 720px; }
 .timeline::before {
@@ -439,8 +627,12 @@ h1, h2, h3, .logo { font-family: 'Space Grotesk', sans-serif; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
 /* ===== Responsive ===== */
+@media (max-width: 1200px) {
+  .certificates-grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 900px) {
   .about-grid, .skills-grid, .projects-grid, .contact-grid { grid-template-columns: 1fr; }
+  .certificates-grid { grid-template-columns: 1fr; }
   .nav-links {
     position: fixed; top: 68px; right: -100%; flex-direction: column;
     background: linear-gradient(135deg, rgba(10,14,39,0.98), rgba(26,42,74,0.98));
@@ -455,7 +647,10 @@ h1, h2, h3, .logo { font-family: 'Space Grotesk', sans-serif; }
   .menu-toggle { display: block; }
   .section { padding: 70px 0; }
   .projects-grid, .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .certs-table { font-size: 0.85rem; }
+  .certs-table th, .certs-table td { padding: 10px; }
   @media (max-width: 600px) {
-    .projects-grid, .skills-grid, .contact-grid { grid-template-columns: 1fr; }
+    .projects-grid, .skills-grid, .contact-grid, .certificates-grid { grid-template-columns: 1fr; }
+    .certs-table { overflow-x: auto; }
   }
 }
